@@ -1,21 +1,22 @@
-stages:
-- stage: 'BlackDuck_Scan'
-  jobs:
-    - job: detect
-      steps:
-      - task: CmdLine@2
-        inputs:
-          script: curl -sSL https://install.python-poetry.org | python3 - 
-                  sudo find . -name "pyproject.toml" -type f -exec poetry install '{}' ';'
-      - task: SynopsysDetectTask@9
-        inputs:
-          BlackDuckService: 'BlackDuck'
-          DetectArguments: |
-            --detect.project.name=Appsec_PE_IASP_SUITE
-            --detect.project.version.name=5.0  
-            --blackduck.trust.cert=true  
-            --detect.detector.search.depth=100  
-            --detect.tools=DETECTOR  
-            --detect.detector.search.continue=true
-            --detect.code.location.name=poetry-dependencies
-          DetectVersion: 'latest'
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  pythonVersion: '3.9'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(pythonVersion)'
+
+- script: pip install poetry
+  displayName: 'Install poetry'
+
+- script: poetry install
+  displayName: 'Install dependencies'
+
+- script: poetry run ruff check
+  displayName: 'Run linter'
+
+- script: poetry run pytest -s
+  displayName: 'Run tests'

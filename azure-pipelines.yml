@@ -5,10 +5,7 @@ stages:
       steps:
       - task: CmdLine@2
         inputs:
-          script: pipx install poetry
-      - task: CmdLine@2
-        inputs:
-          script: poetry install
+          script: sudo find . -name "pyproject.toml" -type f -exec pip install --no-cache-dir --no-clean -r '{}' ';'
       - task: SynopsysDetectTask@9
         inputs:
           BlackDuckService: 'BlackDuck'

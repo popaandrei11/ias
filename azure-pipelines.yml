@@ -5,7 +5,10 @@ stages:
       steps:
       - task: CmdLine@2
         inputs:
-          script: sudo find . -name "pyproject.toml" -type f -exec pip install --no-cache-dir --no-clean -r '{}' ';'
+          script: curl -sSL https://install.python-poetry.org | python3 - 
+      - task: CmdLine@2
+        inputs:
+          script: sudo find . -name "pyproject.toml" -type f -exec poetry install '{}' ';'
       - task: SynopsysDetectTask@9
         inputs:
           BlackDuckService: 'BlackDuck'

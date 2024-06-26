@@ -5,6 +5,9 @@ stages:
       steps:
       - task: CmdLine@2
         inputs:
+          script: pip install poetry
+      - task: CmdLine@2
+        inputs:
           script: sudo find . -name "pyproject.toml" -type f -exec poetry install --no-cache '{}' ';'
       - task: SynopsysDetectTask@9
         inputs:

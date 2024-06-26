@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "iasp_reporting_services"
+version = "0.1.0"
+description = ""
+authors = ["sandeep.i.yadav"]
+
+[tool.poetry.dependencies]
+python="^3.11"
+tablib = "3.0.0"
+django-import-export = "2.5.0"
+iasp-package-dependency = "*"
+python-docx = "0.8.11"
+docxtpl = "0.16.4"
+PyPDF2 = "3.0.1"
+jinja2 = "3.1.3"
+html2image = "2.0.1"
+
+[tool.poetry.extras]
+file_aws = ["astro-cloud-aws"]
+file_azure = ["astro-cloud-azure"]
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://pkgs.dev.azure.com/IASP-PRODUCT/IASP-PRODUCT/_packaging/IASP_Release_Prod_pypi_Release/pypi/simple"
+priority = "primary"
+
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

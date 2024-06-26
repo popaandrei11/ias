@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "iasp_veracode_sca_agent_wrapper"
+version = "3.0.0"
+description = ""
+authors = ["atal.mayank.bajpai"]
+
+[tool.poetry.dependencies]
+python  =  "^3.11"
+iasp-package-dependency="*"
+psutil = "5.9.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://pkgs.dev.azure.com/IASP-PRODUCT/IASP-PRODUCT/_packaging/IASP_Release_Prod_pypi_Release/pypi/simple"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

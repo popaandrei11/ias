@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "iasp_snow_incident_service"
+version = "3.0.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python  =  "^3.11"
+psycopg2 = "2.8.6"
+iasp-package-dependency = "*"
+
+
+[tool.poetry.extras]
+file_aws = ["astro-cloud-aws"]
+file_azure = ["astro-cloud-azure"]
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://pkgs.dev.azure.com/IASP-PRODUCT/IASP-PRODUCT/_packaging/IASP_Release_Prod_pypi_Release/pypi/simple"
+priority = "primary"
+
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "iasp_predict_api_sast_fortify"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "2.2.5"
+Django = "4.2.10"
+pyjwt = "2.8.0"
+flask-restful = "0.3.9"
+gunicorn = "20.1.0"
+memory_profiler = "0.57.0"
+flasgger = "0.9.4"
+flask-cors = "3.0.10"
+pymongo = "3.12.0"
+soteria-ssc-wrapper = "*"
+dast-atps = "*"
+soteria-atps-js = "*"
+soteria-atps-java = "*"
+soteria-atps-dotnet = "*"
+ssc-server-extract-app = "*"
+iasp-package-dependency = "*"
+
+
+[tool.poetry.extras]
+file_aws = ["astro-cloud-aws"]
+file_azure = ["astro-cloud-azure"]
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://pkgs.dev.azure.com/IASP-PRODUCT/IASP-PRODUCT/_packaging/IASP_Release_Prod_pypi_Release/pypi/simple"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "iasp_package_dependency"
+version = "3.1.7"
+description = "IASP common packages"
+authors = ["Dhirendra Singh <d.badri.singh@accenture.com>"]
+
+[tool.poetry.dependencies]
+python  =  "^3.9"
+Django = "4.0.9"
+djangorestframework = "3.12.4"
+openpyxl = "3.0.0"
+psycopg2-binary="2.8.6"
+django-filter = "21.1"
+django-cors-headers = "3.7.0"
+django-postgres-copy="2.4.2"
+requests = "2.25.0"
+requests-toolbelt = "0.9.1"
+xmltodict = "0.12.0"
+veracode-api-signing = "19.9.0"
+cryptography="41.0.3"
+httpie = "3.1.0"
+urllib3 = "1.26.5"
+certifi = "2019.9.11"
+chardet = "3.0.4"
+Click = "8.0.1"
+clint = "0.5.1"
+colorama = "0.4.1"
+jsonfield = "3.1.0"
+python-dateutil = "2.8.1"
+django-rest-swagger = "2.2.0"
+python-jose = "3.1.0"
+requests_ntlm = "1.1.0"
+jira = "2.0.0"
+SharePlum = "0.5.1"
+schedule = "1.1.0"
+dependency-injector = "^4.1.4"
+pyyaml = "6.0"
+django-test-without-migrations = "0.6"
+six = "1.15.0"
+oauthlib = "3.2.0"
+pandas = "2.0.2"
+requests-oauthlib = "3.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "SoteriaOrchestrationPlatform_pypi_Release"
+url = "https://alm.accenture.com/nexus/repository/SoteriaOrchestrationPlatform_pypi_Release/simple"
+default = true
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+secondary=true

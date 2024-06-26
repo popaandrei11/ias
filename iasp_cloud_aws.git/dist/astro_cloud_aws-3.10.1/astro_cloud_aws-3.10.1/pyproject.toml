@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "astro_cloud_aws"
+version = "3.10.1"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+boto3 = "^1.12.48"
+urllib3 = "^1.26.5"
+python-jose = "^3.1.0"
+interfaces-lib = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_pypi_Release"
+url = "https://alm.accenture.com/nexus/repository/IASP_pypi_Release/simple"
+default = true
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+secondary=true

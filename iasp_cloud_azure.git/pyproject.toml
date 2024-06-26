@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "astro_cloud_azure"
+version = "4.0"
+description = "fixes for Multipart Upload"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+interfaces-lib = "*"
+azure-storage-blob = "12.17.0"
+azure-servicebus = "7.11.1"
+azure-identity = "1.13.0"
+azure-keyvault-secrets = "4.7.0"
+hvac = "1.1.1"
+azure-keyvault = "4.2.0"
+requests = "2.31.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://pkgs.dev.azure.com/IASP-PRODUCT/IASP-PRODUCT/_packaging/IASP_Release_Prod_pypi_Release/pypi/simple"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

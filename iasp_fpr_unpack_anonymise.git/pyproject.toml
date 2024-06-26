@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "iasp_fpr_unpack_anonymise"
+version = "0.1.0"
+description = ""
+authors = ["s.reddy.julakanti"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pymongo = "3.12.0"
+flask = "2.2.5"
+gunicorn = "20.1.0"
+soteria-ssc-wrapper = "*"
+mongomock = "3.20.0"
+#astro-hashicorp = "*"
+iasp-package-dependency = "*"
+extract_feature_app= "*"
+
+[tool.poetry.extras]
+file_aws = ["astro-cloud-aws"]
+file_azure = ["astro-cloud-azure"]
+
+[tool.poetry.dev-dependencies]
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://pkgs.dev.azure.com/IASP-PRODUCT/IASP-PRODUCT/_packaging/IASP_Release_Prod_pypi_Release/pypi/simple"
+priority = "primary"
+
+
+
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "iasp_qualys_dast_wrapper"
+version = "0.1.0"
+description = "Qualys Wrappers"
+authors = ["None"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+iasp-package-dependency = "*"
+drf-yasg = "^1.20.0"
+
+[tool.poetry.extras]
+file_azure = ["astro-cloud-azure"]
+file_aws = ["astro-cloud-aws"]
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://alm.accenture.com/nexus/repository/IASP_Release_Prod_pypi_Release/simple"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

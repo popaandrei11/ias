@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "penbot-scan"
+version = "0.1.0"
+description = "Penbot scan"
+authors = ["Abraham, Lijo <l.abraham@accenture.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+boto3 = "^1.26.158"
+botocore = "^1.29.158"
+psycopg2-binary = "^2.9.6"
+pandas = "^2.0.2"
+openpyxl = "^3.1.2"
+validators = "0.22.0"
+pyaml-env = "^1.2.1"
+python-dotenv = "^1.0.0"
+pydantic = "^2.0.3"
+urllib3 = "2.2.1"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

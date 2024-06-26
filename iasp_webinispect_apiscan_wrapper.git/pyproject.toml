@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "webinspectapi_wrapper"
+version = "0.1.0"
+description = "iasp_webinspectapi_wrapper"
+authors = ["None"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "4.0.2"
+drf-yasg = "1.20.0"
+boto3 = "1.21.4"
+requests-ntlm = "1.1.0"
+dependency-injector = {extras = ["yaml"], version = "^4.39.1"}
+astro-cloud-aws = "^2.5.1"
+
+[tool.poetry.extras]
+file_aws = ["astro-cloud-aws"]
+
+[tool.poetry.dev-dependencies]
+
+
+[[tool.poetry.source]]
+name = "IASP_pypi_Release"
+url ="https://pkgs.dev.azure.com/IASP-PRODUCT/IASP-PRODUCT/_packaging/IASP_Release_Prod_pypi_Release/pypi/simple"
+default = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

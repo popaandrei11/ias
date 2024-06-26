@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "iasp_appscan_wrapper"
+version = "0.1.0"
+description = "APPSCAN wrapper"
+authors = ["None"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+drf-yasg = "1.20.0"
+bs4 = "0.0.1"
+iasp-package-dependency = "*"
+pymongo = "3.12.0"
+astro-hashicorp = "*"
+mock = "4.0.2"
+dependency-injector = {extras = ["yaml"], version = "4.41.0"}
+
+
+[tool.poetry.extras]
+file_aws = ["astro-cloud-aws"]
+file_azure = ["astro-cloud-azure"]
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://alm.accenture.com/nexus/repository/IASP_Release_Prod_pypi_Release/simple"
+priority="primary"
+
+
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority="explicit"

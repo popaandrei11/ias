@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "soteria_atps_dotnet"
+version = "4.1.2"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests= "2.31.0"
+pandas= "2.0.2"
+
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "IASP_Release_Prod_pypi_Release"
+url = "https://alm.accenture.com/nexus/repository/IASP_Release_Prod_pypi_Release/simple"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+priority = "explicit"

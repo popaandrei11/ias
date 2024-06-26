@@ -1,0 +1,20 @@
+stages:
+- stage: 'BlackDuck_Scan'
+  jobs:
+    - job: detect
+      steps:
+      - task: CmdLine@2
+        inputs:
+          script: sudo find . -name "pyproject.toml" -type f -exec poetry install --no-cache '{}' ';'
+      - task: SynopsysDetectTask@9
+        inputs:
+          BlackDuckService: 'BlackDuck'
+          DetectArguments: |
+            --detect.project.name=Appsec_PE_IASP_SUITE
+            --detect.project.version.name=5.0  
+            --blackduck.trust.cert=true  
+            --detect.detector.search.depth=100  
+            --detect.tools=DETECTOR  
+            --detect.detector.search.continue=true
+            --detect.code.location.name=poetry-dependencies
+          DetectVersion: 'latest'

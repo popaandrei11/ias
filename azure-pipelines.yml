@@ -1,22 +1,22 @@
-pool:
-  vmImage: ubuntu-latest
-
-variables:
-  pythonVersion: '3.9'
-
-steps:
 - task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(pythonVersion)'
+    inputs:
+    versionSpec: '3.8'
+    displayName: 'Use Python 3.8'
 
-- script: pip install poetry
-  displayName: 'Install poetry'
+  - script: |
+    curl -sSL install.python-poetry.org | python3 -
+    export PATH=$PATH:$HOME/.poetry/bin
+    poetry install --no-root
+    displayName: 'Install dependencies'
 
-- script: poetry install
-  displayName: 'Install dependencies'
+  - script: echo "##vso[task.prependpath]$HOME/.poetry/bin"
+    displayName: Add poetry to PATH
 
-- script: poetry run ruff check
-  displayName: 'Run linter'
+  - script: |
+    poetry run flake8 src
+    displayName: 'Linter'
 
-- script: poetry run pytest -s
-  displayName: 'Run tests'
+  - script: |
+    poetry add pytest-azurepipelines
+    poetry run pytest src
+    displayName: 'Tests'

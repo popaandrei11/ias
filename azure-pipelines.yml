@@ -5,7 +5,7 @@ stages:
       steps:
       - task: CmdLine@2
         inputs:
-          script: pipex install poetry
+          script: pipx install poetry
       - task: CmdLine@2
         inputs:
           script: sudo find . -name "pyproject.toml" -type f -exec poetry install --no-cache '{}' ';'

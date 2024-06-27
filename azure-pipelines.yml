@@ -9,7 +9,8 @@ stages:
           script: |
             # Install Poetry if not already installed
             if (-not (Get-Command "poetry" -ErrorAction SilentlyContinue)) {
-            Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://install.python-poetry.org')
+            Invoke-WebRequest -Uri "https://install.python-poetry.org" -OutFile "install-poetry.py"
+            python install-poetry.py
             $env:PATH += ";$env:USERPROFILE\.poetry\bin"
             }
             # Get a list of all pyproject.toml files

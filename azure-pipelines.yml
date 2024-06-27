@@ -1,7 +1,7 @@
 stages:
 - stage: 'Poetry_Install'
   jobs:
-    - job: detect
+    - job: install
       steps:
       - task: PowerShell@2
         inputs:

@@ -3,13 +3,23 @@ stages:
   jobs:
     - job: detect
       steps:
-      - task: CmdLine@2
+      - task: PowerShell@2
         inputs:
+          targetType: 'inline'
           script: |
-            curl -sSL install.python-poetry.org | python3 -
-            export PATH=$PATH:$HOME/.poetry/bin
-            sudo find . -name "pyproject.toml" -exec poetry install --no-root '{}' ';'
-            echo "##vso[task.prependpath]$HOME/.poetry/bin"
-            poetry run flake8 src
-            poetry add pytest-azurepipelines
-            poetry run pytest src
+            # Install Poetry if not already installed
+            if (-not (Get-Command "poetry" -ErrorAction SilentlyContinue)) {
+            Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://install.python-poetry.org')
+            $env:PATH += ";$env:USERPROFILE\.poetry\bin"
+            }
+            # Get a list of all pyproject.toml files
+            $pyprojectFiles = Get-ChildItem -Path . -Recurse -Filter "pyproject.toml"
+            foreach ($file in $pyprojectFiles) {
+              # Navigate to the directory containing pyproject.toml
+              $directory = Split-Path $file.FullName
+              Set-Location $directory
+              # Run poetry lock command
+              poetry lock
+              # Navigate back to the original directory
+              Set-Location -Path $PSScriptRoot
+              }

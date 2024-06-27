@@ -24,7 +24,7 @@ stages:
               $directory = Split-Path $file.FullName
               Set-Location $directory
               # Run poetry lock command
-              poetry lock --no-cache --only main
+              poetry lock
               # Navigate back to the original directory
               Set-Location -Path $PSScriptRoot
               }

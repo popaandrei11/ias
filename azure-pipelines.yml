@@ -3,6 +3,10 @@ stages:
   jobs:
     - job: install
       steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.x'
+          addToPath: true
       - task: PowerShell@2
         inputs:
           targetType: 'inline'
